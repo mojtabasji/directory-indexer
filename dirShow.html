@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="assets/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@300&display=swap" rel="stylesheet">
+    <title><?php echo $title; ?></title>
+</head>
+<body>
+<h1 class="welcome"><?php echo $message; ?></h1>
+<div class="return_area">
+    <a class="a_back" href="?dir=<?php echo $parent_dir; ?>">
+        <img src="assets/back.png" alt="back" class="back_img">
+        <h2 class="return_text">بازگشت ..</h2>
+    </a>
+    <h2 class="return_text">مسیر: <?php echo $path; ?></h2>
+</div>
+<div class="content">
+    <?php foreach ($dirs as $dir): ?>
+    <div class="directory_icon card">
+        <a href="?<?php echo $dir['link']; ?>">
+            <img src="assets/dir.png" alt="<?php echo $dir['name']; ?>">
+            <p><?php echo $dir['name']; ?></p>
+        </a>
+    </div>
+    <?php endforeach; ?>
+    <?php foreach ($files as $file): ?>
+    <div class="file_icon card">
+        <a href="?<?php echo $file['link']; ?>">
+            <img src="assets/file.png" alt="<?php echo $file['name']; ?>">
+            <p><?php echo $file['name']; ?></p>
+        </a>
+    </div>
+    <?php endforeach; ?>
+</div>
+</body>
+</html>
